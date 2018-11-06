@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Towers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="seven columns rooms-container">
+            </div>
+            <div class="five columns create-container">
+                <form id="join-room" action="game.html">
+                    <input type="text" name="name" placeholder="name" id="name-input">
+
+                    <input type="text" name="room" placeholder="room name" id="room-input">
+
+                    <button type="submit">join</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

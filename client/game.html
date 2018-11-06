@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room name</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+</head>
+<body>
+    <div class="msg"></div>
+    
+    <a href="/">back to rooms</a>
+
+
+    <div id="num-input">
+        <input type="text" placeholder="input number" id="num">
+        <button>sumbit</button>
+    </div>
+
+    <div class="player-number" style="display:none"></div>
+
+    <div class="enemy-number" style="display:none"></div>
+
+    <button id="ready-btn">ready</button>
+
+    <button id="restart-btn" style="display:none">restart</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
