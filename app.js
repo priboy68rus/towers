@@ -48,8 +48,12 @@ io.on('connection', (socket) => {
     socket.on('statusChange', (data) => {
         var user = users.getUser(socket.id);
 
+        
+
         if (user) {
             user.status = data.status;
+            io.to(user.room).emit('updateUserList', users.getUserList(user.room));
+
             if (users.isRoomReady(user.room)) {
                 console.log('room ' + user.room + ' is ready');
                 io.to(user.room).emit('roomReady');

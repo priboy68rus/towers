@@ -6,24 +6,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 </head>
 <body>
-    <div class="msg"></div>
-    
-    <a href="/">back to rooms</a>
+    <div class="container">
+        <div class="row">
+            <h3>Towers</h3>
+        </div>
 
+        <div class="row">
+            <div>
+                <h5 class="header"></h5>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="nine columns">
+                <div class="players-list">
+                    <table class="u-full-width">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-    <div id="num-input">
-        <input type="text" placeholder="input number" id="num">
-        <button>sumbit</button>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="three columns">
+                <button id="ready-btn">ready</button>
+            </div>
+        </div>
+        
+        
+        <div id="num-input">
+            <input type="text" placeholder="input number" id="num">
+            <button>sumbit</button>
+        </div>
+        
+        <div class="player-number" style="display:none"></div>
+        
+        <div class="enemy-number" style="display:none"></div>
+        
+        
+        
+        <button id="restart-btn" style="display:none">restart</button>
     </div>
-
-    <div class="player-number" style="display:none"></div>
-
-    <div class="enemy-number" style="display:none"></div>
-
-    <button id="ready-btn">ready</button>
-
-    <button id="restart-btn" style="display:none">restart</button>
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="game.js"></script>
 </body>

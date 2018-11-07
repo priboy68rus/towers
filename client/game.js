@@ -1,15 +1,20 @@
 var socket = io();
 
-var st = false;
-
 const ready_btn = document.querySelector("#ready-btn");
 const restart_btn = document.querySelector("#restart-btn");
-const msg = document.querySelector(".msg");
 const num_input = document.querySelector("#num-input");
 const num = document.querySelector("#num-input input");
 const num_btn = document.querySelector("#num-input button");
 const player_num = document.querySelector(".player-number");
 const enemy_num = document.querySelector(".enemy-number");
+const players_list_table = document.querySelector(".players-list tbody");
+const header = document.querySelector(".header");
+
+
+var st = false;
+var user_list = [];
+
+
 
 window.addEventListener('load', function() {
     joinRoom();
@@ -48,7 +53,6 @@ function setState(state, player_data, enemy_data) {
         restart_btn.style.display = "none";
         player_num.textContent = "";
         enemy_num.textContent = "";
-        msg.textContent = "";
         return;
     }
     if (state = "show") {
@@ -71,6 +75,7 @@ function joinRoom() {
     var param = new URLSearchParams(window.location.search);
 
     socket.emit('join', {'name': param.get('name'), 'room': param.get('room')});
+    header.innerHTML = `You are in <b>${param.get('room')}</b> as <b>${param.get('name')}</b>`;
 }
 
 function toggleStatus() {
@@ -86,6 +91,23 @@ function showRestart() {
     }
 }
 
+function setTableContent(data) {
+    var rows = document.querySelectorAll("tbody tr");
+    for (var i = 0; i < rows.length; i++) {
+        rows[i].parentNode.removeChild(rows[i]);
+    }
+
+    for (var i = 0; i < data.length; i++) {
+        var tr = document.createElement("tr");
+        tr.innerHTML = `<td>${data[i].name}</td><td>${data[i].status}</td>`;
+        players_list_table.appendChild(tr);
+    }
+}
+
+//---------------------------------------------
+// socket.io thing
+//---------------------------------------------
+
 socket.on('connect', function() {
     console.log('connected');
 });
@@ -96,10 +118,11 @@ socket.on('disconnect', function() {
 
 socket.on('updateUserList', function(data) {
     console.log(data);
+    user_list = data;
+    setTableContent(data);
 });
 
 socket.on('roomReady', function() {
-    msg.textContent = 'room is ready';
     setState("input");
 });
 

@@ -23,12 +23,15 @@ class Users {
     
     getUserList(room) {
         var users = this.users.filter((user) => user.room === room);
-        var namesArray = users.map((user) => user.name);
-        return namesArray;
+        // var namesArray = users.map((user) => user.name);
+        var namesStatuses = users.map((user) => { return {name: user.name, status: user.status}; })
+        return namesStatuses;
     }
 
     isRoomReady(room) {
         var statuses = this.users.filter((user) => user.room === room).map(user => user.status);
+        if (statuses.length < 2)
+            return false;
         if (statuses.includes(false))
             return false;
         return true;
