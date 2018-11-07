@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookies-js": "^1.2.3",
     "express": "^4.16.4",
     "socket.io": "^2.1.1"
   }

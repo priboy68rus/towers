@@ -1,3 +1,25 @@
 input {
     display: block;
 }
+
+.room {
+    /* height: 50px; */
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    padding: 10px 0px 10px 10px;
+    transition: border-color 0.2s ease;
+    margin-bottom: 10px;
+}
+
+.room:hover {
+    border: 1px solid #888;
+    cursor: pointer;
+}
+
+.rooms-container {
+    margin-bottom: 30px;
+}
+
+.no-rooms {
+    color: #999;
+}

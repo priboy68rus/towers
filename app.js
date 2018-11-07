@@ -34,6 +34,8 @@ io.on('connection', (socket) => {
 
         io.to(data.room).emit('updateUserList', users.getUserList(data.room));
 
+
+        io.emit('rooms', {rooms: users.getFreeRooms()})
     });
 
     socket.on('disconnect', () => {
