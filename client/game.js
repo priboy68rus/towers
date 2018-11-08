@@ -272,7 +272,7 @@ socket.on('updateUserList', function(data) {
     console.log(data);
     setTableContent(data);
 
-    if (data.length < 2) {
+    if (data.length < 2 && st != "wait") {
         st = "wait";
         sendStatus();
         setState("wait");
