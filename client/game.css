@@ -1,0 +1,35 @@
+.tower-label {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 25px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input {
+    text-align: center;
+}
+
+.player-label, .enemy-label {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding-left: 25px;
+}
+
+#counter {
+    color: black;
+    transition: color 0.3s ease;
+    font-size: 30px;
+}
+
+.shown {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+#title {
+    cursor: pointer;
+}

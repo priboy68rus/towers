@@ -4,7 +4,7 @@ class Users {
     }
     
     addUser(id, name, room) {
-        var user = {id, name, room, status:false};
+        var user = {id, name, room, status:"wait"};
         this.users.push(user);
         return user;
     }
@@ -32,8 +32,11 @@ class Users {
         var statuses = this.users.filter((user) => user.room === room).map(user => user.status);
         if (statuses.length < 2)
             return false;
-        if (statuses.includes(false))
-            return false;
+        for (var i = 0; i < statuses.length; i++) {
+            if (statuses[i] != "ready")
+                return false;
+        }
+
         return true;
     }
 

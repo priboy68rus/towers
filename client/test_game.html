@@ -1,70 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Room name</title>
+    <title>Test Game</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <link rel="stylesheet" href="game.css">
 </head>
 <body>
     <div class="container">
-        <div class="row" id="title">
-            <h3>Towers</h3>
+        <div class="row" id="player-inputs-container">
+            <div class="one column"><input type="number" min="0" max="50" id="input1"></div>
+            <div class="one column"><input type="number" min="0" max="50" id="input2"></div>
+            <div class="one column"><input type="number" min="0" max="50" id="input3"></div>
+            <div class="one column"><input type="number" min="0" max="50" id="input4"></div>
+            <div class="one column"><input type="number" min="0" max="50" id="input5"></div>
+            <div class="one column"><input type="number" min="0" max="50" id="input6"></div>
+            <div class="one column"><input type="number" min="0" max="50" id="input7"></div>
+            <div class="one column"><input type="number" min="0" max="50" id="input8"></div>
+            <div class="one column"><input type="number" min="0" max="50" id="input9"></div>
+            <div class="one column"><input type="number" min="0" max="50" id="input10"></div>
         </div>
-        
-        <div class="row">
-            <div>
-                <h5 class="header"></h5>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="ten columns">
-                <div class="players-list">
-                    <table class="u-full-width">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Status
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            <div class="two columns">
-                <button id="ready-btn" class="game wait">ready</button>
-                <button id="restart-btn" class="game results">restart</button>
-            </div>
-        </div>
-        
-        
-        <div class="row">
-            <button id="submit-btn" class="game input">sumbit</button>
-            <p id="counter" class="game input results">0/50</p>
-        </div>
-    
-    
-        <div class="row game input" id="player-inputs-container">
-            <div class="one column"><input type="number" min="0" max="50" value="0" id="input1"></div>
-            <div class="one column"><input type="number" min="0" max="50" value="0" id="input2"></div>
-            <div class="one column"><input type="number" min="0" max="50" value="0" id="input3"></div>
-            <div class="one column"><input type="number" min="0" max="50" value="0" id="input4"></div>
-            <div class="one column"><input type="number" min="0" max="50" value="0" id="input5"></div>
-            <div class="one column"><input type="number" min="0" max="50" value="0" id="input6"></div>
-            <div class="one column"><input type="number" min="0" max="50" value="0" id="input7"></div>
-            <div class="one column"><input type="number" min="0" max="50" value="0" id="input8"></div>
-            <div class="one column"><input type="number" min="0" max="50" value="0" id="input9"></div>
-            <div class="one column"><input type="number" min="0" max="50" value="0" id="input10"></div>
-        </div>
-        <div class="row game results inputdone" id="player-data-container">
+        <div class="row player-data-container">
             <div class="one column"><p class="player-label" id="player-label1">10</p></div>
             <div class="one column"><p class="player-label" id="player-label2">20</p></div>
             <div class="one column"><p class="player-label" id="player-label3">20</p></div>
@@ -76,7 +31,7 @@
             <div class="one column"><p class="player-label" id="player-label9"></p></div>
             <div class="one column"><p class="player-label" id="player-label10"></p></div>
         </div>
-        <div class="row game input inputdone results" id="tower-labels-container">
+        <div class="row tower-labels-container">
             <div class="one column"><p class="tower-label" id="tower-label1">1</p></div>
             <div class="one column"><p class="tower-label" id="tower-label2">2</p></div>
             <div class="one column"><p class="tower-label" id="tower-label3">3</p></div>
@@ -88,7 +43,7 @@
             <div class="one column"><p class="tower-label" id="tower-label9">9</p></div>
             <div class="one column"><p class="tower-label" id="tower-label10">10</p></div>
         </div>
-        <div class="row game results" id="enemy-data-container">
+        <div class="row enemy-data-container">
             <div class="one column"><p class="enemy-label" id="enemy-label1"></p></div>
             <div class="one column"><p class="enemy-label" id="enemy-label2">30</p></div>
             <div class="one column"><p class="enemy-label" id="enemy-label3">20</p></div>
@@ -101,8 +56,5 @@
             <div class="one column"><p class="enemy-label" id="enemy-label10"></p></div>
         </div>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-    <script src="game.js"></script>
 </body>
 </html>
