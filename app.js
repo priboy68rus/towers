@@ -14,6 +14,7 @@ var users = new Users();
 app.use(express.static(path.join(__dirname, 'client')));
 
 io.on('connection', (socket) => {
+    console.log("users online: " + users.users.length);
 
     socket.on('rooms', () => {
         socket.emit('rooms', {rooms: users.getFreeRooms()})
@@ -64,7 +65,6 @@ io.on('connection', (socket) => {
     socket.on('played', (data) => {
         var user = users.getUser(socket.id);
 
-        console.log(user.name + " " + data.num);
 
         if (user) {
             socket.broadcast.to(user.room).emit('played', data);
