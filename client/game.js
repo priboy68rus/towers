@@ -16,6 +16,7 @@ var max_soldiers = 50;
 var soldiers_sum = 0;
 var player_score = 0;
 var enemy_score = 0;
+var chat;
 
 var player_data;
 var enemy_data;
@@ -24,6 +25,11 @@ var enemy_data;
 
 window.addEventListener('load', function() {
     joinRoom();
+
+    chat = new Chat(player_name, 6, msgSender);
+    chat_send.addEventListener('click', function() {
+        chat.sendMessage();
+    })
     
     ready_btn.addEventListener('click', function() {
         toggleStatus();
@@ -256,23 +262,29 @@ function sendStatus() {
     socket.emit('statusChange', {status: st});
 }
 
+function msgSender(data) {
+    socket.emit('msg', data);
+}
+
 //---------------------------------------------
 // socket.io thing
 //---------------------------------------------
 
 socket.on('connect', function() {
     console.log('connected');
+    // chat.addMessage({user: "__system__", msg: "connected"});
 });
 
 socket.on('disconnect', function() {
     console.log('disconnected');
+    // chat.addMessage({user: "__system__", msg: "disconnected"});
 });
 
 socket.on('updateUserList', function(data) {
     console.log(data);
     setTableContent(data);
 
-    if (data.length < 2 && st != "wait") {
+    if (data.length < 2 && st != "wait" && st != "ready") {
         st = "wait";
         sendStatus();
         setState("wait");
@@ -294,4 +306,8 @@ socket.on('played', function(d) {
         setState("results");
     }
     
+});
+
+socket.on('msg', function(data) {
+    chat.addMessage(data);
 });

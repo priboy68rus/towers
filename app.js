@@ -71,6 +71,15 @@ io.on('connection', (socket) => {
         }
     });
 
+    socket.on('msg', (data) => {
+        var user = users.getUser(socket.id);
+
+        if (user && data) {
+            var data = {user: data.user, msg: data.msg};
+            socket.broadcast.to(user.room).emit('msg', data);
+        }
+    });
+
 });
 
 serv.listen(80, () => {

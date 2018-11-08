@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Room name</title>
+    <title>Towers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <link rel="stylesheet" href="game.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 </head>
 <body>
     <div class="container">
@@ -19,7 +20,7 @@
         </div>
         
         <div class="row">
-            <div class="ten columns">
+            <div class="five columns">
                 <div class="players-list">
                     <table class="u-full-width">
                         <thead>
@@ -37,6 +38,19 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+
+            <div class="five columns">
+                <div class="u-full-width" id="chat-area">
+                    <!-- <div class="chat-msg my-msg"><p class="name">john:</p> <p>1234512345123451234512345</p></div>
+                    <div class="chat-msg other-msg"><p class="name">john:</p> <p>hello</p></div>
+                    <div class="chat-msg system-msg">john disconnected</div> -->
+                </div>
+
+                <form action="javascript:void(0);">
+                    <input type="text" id="chat-input" autocomplete="off" maxlength="25">
+                    <button id="chat-send">send</button>
+                </form>
             </div>
             
             <div class="two columns">
@@ -109,5 +123,6 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="game.js"></script>
+    <script src="chat.js"></script>
 </body>
 </html>

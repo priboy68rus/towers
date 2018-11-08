@@ -35,3 +35,62 @@ input {
     text-decoration: none;
     color: black;
 }
+
+/* chat  */
+
+#chat-area {
+    font-family: 'Courier New', Courier, monospace;
+    height: 150px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+.chat-msg {
+    margin: 0;
+    padding: 0;
+    height: 25px;
+}
+
+.chat-msg p {
+    display: inline;
+}
+
+.chat-msg .name {
+    font-weight: bold;
+}
+
+.chat-msg.my-msg {
+    text-align: left;
+}
+
+.chat-msg.my-msg .name {
+    /* color: rgb(84, 149, 255); */
+    color: rgb(0, 55, 114);
+    
+}
+
+.chat-msg.other-msg {
+    text-align: right;
+}
+
+.chat-msg.other-msg .name {
+    color: rgb(140, 0, 0);
+}
+
+.chat-msg.system-msg {
+    text-align: center;
+    color: #999;
+}
+
+#chat-input {
+    width: 65%;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;  
+}
+
+#chat-send {
+    width: 25%;
+    float: right;
+}
