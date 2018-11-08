@@ -72,7 +72,7 @@ function setState(state) {
     
     if (state == "input") {
         
-        toggleStatus();
+        // toggleStatus();
 
     } else if (state == "wait") {
         
@@ -82,6 +82,10 @@ function setState(state) {
         sum = 0;
         updateCounter();
         submit_btn.disabled = false;
+
+        st = "wait";
+        sendStatus();
+        ready_btn.classList.remove("button-primary");
 
     } else if (state == "results") {
         
@@ -196,13 +200,13 @@ function updateResults() {
     enemy_score = 0;
 
     for (var i = 0; i < player_data.length; i++) {
-        if (player_data[i] > enemy_data[i]) {
+        if (parseInt(player_data[i]) > parseInt(enemy_data[i])) {
             tl[i].style.color = "rgb(0, 201, 0)";
             player_score += (i + 1);
-        } else if (player_data[i] < enemy_data[i]) {
+        } else if (parseInt(player_data[i]) < parseInt(enemy_data[i])) {
             tl[i].style.color = "red";
             enemy_score += (i + 1);
-        } else if (player_data[i] == enemy_data[i]) {
+        } else if (parseInt(player_data[i]) == parseInt(enemy_data[i])) {
             tl[i].style.color = "black";
         }
     }
@@ -267,6 +271,12 @@ socket.on('disconnect', function() {
 socket.on('updateUserList', function(data) {
     console.log(data);
     setTableContent(data);
+
+    if (data.length < 2) {
+        st = "wait";
+        sendStatus();
+        setState("wait");
+    }
 });
 
 socket.on('roomReady', function() {
