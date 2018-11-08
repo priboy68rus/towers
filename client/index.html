@@ -7,17 +7,28 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-
+    
     <div class="container">
         <div class="row">
-            <h3>Towers</h3>
+            <a href="/" id="title"><h3>Towers</h3></a>
         </div>
-
+        
         <div class="row">
-            description
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam odit maiores eligendi ex voluptatum placeat commodi, a fugiat? Qui, sequi.
-            <br>
-            <br>
+            <p>In this game you need to capture towers with your soldiers. Here are rules:</p>
+            
+            <ul>
+                <li>There are total of 10 towers with values from 1 to 10</li>
+                <li>To capture one you need to send more soldiers than your opponent</li>
+                <li>You have only 50 soldiers so use them wisely</li>
+                <li>Player wins if he or she has the highest sum of captured towers values</li>
+            </ul>
+            
+            <p> To play, enter your nickname and select a room from a list down below or create your own.
+                
+                Have fun :)
+            </p>
+            
+
             <h4>Rooms</h4>
         </div>
         <div class="row">
@@ -33,13 +44,13 @@
                     <input type="text" name="name" placeholder="name" id="name-input" required>
                     <label for="room-input">Room</label>
                     <input type="text" name="room" placeholder="room name" id="room-input" required>
-
+                    
                     <button type="submit">join</button>
                 </form>
             </div>
         </div>
     </div>
-   
+    
     <script src="cookies.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="main.js"></script>

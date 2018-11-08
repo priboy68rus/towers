@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="container">
-        <div class="row" id="title">
-            <h3>Towers</h3>
+        <div class="row">
+            <a href="/" id="title"><h3>Towers</h3></a>
         </div>
         
         <div class="row">
@@ -47,11 +47,16 @@
         
         
         <div class="row">
-            <button id="submit-btn" class="game input">sumbit</button>
-            <p id="counter" class="game input results">0/50</p>
+            <div class="two columns">
+                <button id="submit-btn" class="game input">sumbit</button>
+                
+            </div>
+            <div class="ten columns">
+                <p id="counter" class="game input results">0/50</p>
+            </div>
         </div>
-    
-    
+        
+        
         <div class="row game input" id="player-inputs-container">
             <div class="one column"><input type="number" min="0" max="50" value="0" id="input1"></div>
             <div class="one column"><input type="number" min="0" max="50" value="0" id="input2"></div>

@@ -6,7 +6,6 @@ const submit_btn = document.querySelector("#submit-btn");
 const players_list_table = document.querySelector(".players-list tbody");
 const header = document.querySelector(".header");
 const counter = document.querySelector("#counter");
-const title = document.querySelector('#title');
 
 
 var st = "wait";
@@ -25,10 +24,6 @@ var enemy_data;
 
 window.addEventListener('load', function() {
     joinRoom();
-    
-    title.addEventListener('click', function() {
-        window.location = '/';
-    });
     
     ready_btn.addEventListener('click', function() {
         toggleStatus();
@@ -147,10 +142,26 @@ function setTableContent(data) {
         if (player_name == _player_name) {
             _player_name = `<b>${_player_name}</b>`;
         }
-        tr.innerHTML = `<td>${_player_name}</td><td>${data[i].status}</td>`;
+        tr.innerHTML = `<td>${_player_name}</td><td>${formatStatus(data[i].status)}</td>`;
         players_list_table.appendChild(tr);
     }
 }
+
+function formatStatus(status) {
+    if (status == 'wait') {
+        return 'Waiting...';
+    } else if (status == 'ready') {
+        return 'Ready!';
+    } else if (status == 'input') {
+        return 'Sending soldiers...';
+    } else if (status == 'inputdone') {
+        return 'Soldiers sent!';
+    } else if (status == 'results') {
+        return 'Looking at results...';
+    } else {
+        return status;
+    }
+} 
 
 
 function collectPlayerInputs() {
@@ -186,7 +197,7 @@ function updateResults() {
 
     for (var i = 0; i < player_data.length; i++) {
         if (player_data[i] > enemy_data[i]) {
-            tl[i].style.color = "green";
+            tl[i].style.color = "rgb(0, 201, 0)";
             player_score += (i + 1);
         } else if (player_data[i] < enemy_data[i]) {
             tl[i].style.color = "red";

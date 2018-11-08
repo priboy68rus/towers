@@ -19,7 +19,8 @@ input {
 #counter {
     color: black;
     transition: color 0.3s ease;
-    font-size: 30px;
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .shown {
@@ -31,5 +32,6 @@ input {
 }
 
 #title {
-    cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
