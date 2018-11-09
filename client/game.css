@@ -36,6 +36,12 @@ input {
     color: black;
 }
 
+#placeholder-button {
+    /* dirty hack */
+    opacity: 0;
+    margin-bottom: 31px;
+}
+
 /* chat  */
 
 #chat-area {

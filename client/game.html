@@ -20,7 +20,7 @@
         </div>
         
         <div class="row">
-            <div class="five columns">
+            <div class="six columns">
                 <div class="players-list">
                     <table class="u-full-width">
                         <thead>
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="five columns">
+            <div class="six columns">
                 <div class="u-full-width" id="chat-area">
                     <!-- <div class="chat-msg my-msg"><p class="name">john:</p> <p>1234512345123451234512345</p></div>
                     <div class="chat-msg other-msg"><p class="name">john:</p> <p>hello</p></div>
@@ -48,30 +48,31 @@
                 </div>
 
                 <form action="javascript:void(0);">
-                    <input type="text" id="chat-input" autocomplete="off" maxlength="25">
+                    <input type="text" id="chat-input" autocomplete="off">
                     <button id="chat-send">send</button>
                 </form>
             </div>
             
             <div class="two columns">
-                <button id="ready-btn" class="game wait">ready</button>
-                <button id="restart-btn" class="game results">restart</button>
+                
             </div>
         </div>
         
         
         <div class="row">
             <div class="two columns">
-                <button id="submit-btn" class="game input">sumbit</button>
-                
+                <button id="submit-btn" class="game input hidden">sumbit</button>
+                <button id="ready-btn" class="game wait">ready</button>
+                <button id="restart-btn" class="game results hidden">restart</button>
+                <button id="placeholder-button" class="game inputdone hidden">placeholder</button>
             </div>
             <div class="ten columns">
-                <p id="counter" class="game input results">0/50</p>
+                <p id="counter" class="game input results hidden">0/50</p>
             </div>
         </div>
         
         
-        <div class="row game input" id="player-inputs-container">
+        <div class="row game input hidden" id="player-inputs-container">
             <div class="one column"><input type="number" min="0" max="50" value="0" id="input1"></div>
             <div class="one column"><input type="number" min="0" max="50" value="0" id="input2"></div>
             <div class="one column"><input type="number" min="0" max="50" value="0" id="input3"></div>
@@ -83,7 +84,7 @@
             <div class="one column"><input type="number" min="0" max="50" value="0" id="input9"></div>
             <div class="one column"><input type="number" min="0" max="50" value="0" id="input10"></div>
         </div>
-        <div class="row game results inputdone" id="player-data-container">
+        <div class="row game results inputdone hidden" id="player-data-container">
             <div class="one column"><p class="player-label" id="player-label1">10</p></div>
             <div class="one column"><p class="player-label" id="player-label2">20</p></div>
             <div class="one column"><p class="player-label" id="player-label3">20</p></div>
@@ -95,7 +96,7 @@
             <div class="one column"><p class="player-label" id="player-label9"></p></div>
             <div class="one column"><p class="player-label" id="player-label10"></p></div>
         </div>
-        <div class="row game input inputdone results" id="tower-labels-container">
+        <div class="row game input inputdone results hidden" id="tower-labels-container">
             <div class="one column"><p class="tower-label" id="tower-label1">1</p></div>
             <div class="one column"><p class="tower-label" id="tower-label2">2</p></div>
             <div class="one column"><p class="tower-label" id="tower-label3">3</p></div>
@@ -107,7 +108,7 @@
             <div class="one column"><p class="tower-label" id="tower-label9">9</p></div>
             <div class="one column"><p class="tower-label" id="tower-label10">10</p></div>
         </div>
-        <div class="row game results" id="enemy-data-container">
+        <div class="row game results hidden" id="enemy-data-container">
             <div class="one column"><p class="enemy-label" id="enemy-label1"></p></div>
             <div class="one column"><p class="enemy-label" id="enemy-label2">30</p></div>
             <div class="one column"><p class="enemy-label" id="enemy-label3">20</p></div>
@@ -122,6 +123,7 @@
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="utils.js"></script>
     <script src="game.js"></script>
     <script src="chat.js"></script>
 </body>
